@@ -66,9 +66,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     // numbers and navigation
   [L_LOWER] = LAYOUT_split_3x6_3(
   //,-----------------------------------------------------.             ,-----------------------------------------------------.                    
-     KC_GRAVE, KC_1, KC_2, KC_3, KC_4, KC_5,                                KC_6, KC_7,    KC_8,    KC_9,  KC_0,  KC_MINUS,                
+     KC_EQUAL, KC_1, KC_2, KC_3, KC_4, KC_5,                                KC_6, KC_7,    KC_8,    KC_9,  KC_0,  KC_MINUS,                
   //|--------+--------+--------+--------+--------+--------|             |--------+--------+--------+--------+--------+--------|                    
-    _______,  KC_LCTL, KC_LSFT, KC_LALT, KC_LGUI, _______,                 KC_WWW_BACK, KC_LEFT,   KC_UP,KC_DOWN,KC_RIGHT, KC_WWW_FORWARD,                    
+    KC_GRAVE,  KC_LCTL, KC_LSFT, KC_LALT, KC_LGUI, _______,                 KC_WWW_BACK, KC_LEFT,   KC_UP,KC_DOWN,KC_RIGHT, KC_WWW_FORWARD,                    
   //|--------+--------+--------+--------+--------+--------|             |--------+--------+--------+--------+--------+--------|  
   //                        long press for {}                  
       _______, KC_LPRN, KC_LBRC, KC_RBRC, KC_RPRN, _______,                KC_UNDO, KC_HOME, KC_PGUP, KC_PGDN,KC_END, KC_AGAIN,            
@@ -182,7 +182,7 @@ void oled_render_layer_state(void) {
         oled_write_P(PSTR(" 789-"), false);
         oled_write_P(PSTR("/456+"), false);
         oled_write_P(PSTR("0123*"), false);
-        oled_write_P(PSTR("=<."), false);
+        oled_write_P(PSTR("<=."), false);
     }
     if(layer_state_cmp(layer_state, L_FUNCTION)){
         static const char PROGMEM fn_and_media[] = {
@@ -256,7 +256,7 @@ void oled_task_user(void) {
             oled_write_P(PSTR(" 789-"), false);
             oled_write_P(PSTR("/456+"), false);
             oled_write_P(PSTR("0123*"), false);
-            oled_write_P(PSTR("=<."), false);
+            oled_write_P(PSTR("<=."), false);
         } else {
             oled_render_logo();
         }
