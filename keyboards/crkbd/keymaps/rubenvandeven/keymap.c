@@ -94,9 +94,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
       _______,  KC_LCTL, KC_LSFT, KC_LALT, KC_LGUI, _______,                     KC_KP_SLASH, KC_KP_4, KC_KP_5, KC_KP_6, KC_KP_PLUS,  _______, 
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      _______, _______, _______, _______, _______, _______,                      KC_KP_0,  KC_KP_1, KC_KP_2, KC_KP_3, KC_KP_ASTERISK, _______,
+      _______, _______, _______, _______, _______, _______,                      KC_KP_ASTERISK,  KC_KP_1, KC_KP_2, KC_KP_3, KC_KP_DOT, _______,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                                                 _______,   _______, _______, KC_BSPC,KC_KP_EQUAL, KC_KP_DOT
+                                                 _______,   _______, _______, KC_BSPC,KC_KP_EQUAL, KC_KP_0
                                       //`--------------------------'  `--------------------------'
   ),
 
@@ -192,8 +192,8 @@ void oled_render_layer_state(void) {
         oled_write_P(PSTR("Nrpad"), false);
         oled_write_P(PSTR(" 789-"), false);
         oled_write_P(PSTR("/456+"), false);
-        oled_write_P(PSTR("0123*"), false);
-        oled_write_P(PSTR("<=."), false);
+        oled_write_P(PSTR("*123."), false);
+        oled_write_P(PSTR("<=0"), false);
     }
     if(layer_state_cmp(layer_state, L_FUNCTION)){
         static const char PROGMEM fn_and_media[] = {
