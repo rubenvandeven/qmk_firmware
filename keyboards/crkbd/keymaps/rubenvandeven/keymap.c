@@ -37,6 +37,17 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define L_KEYPAD 9 // Keypad
 
 
+// Tap Dance declarations
+enum {
+    TD_PARENTHESES,
+};
+
+// Tap Dance definitions
+qk_tap_dance_action_t tap_dance_actions[] = {
+    // Tap once for Escape, twice for Caps Lock
+    [TD_PARENTHESES] = ACTION_TAP_DANCE_DOUBLE(KC_LPRN, KC_RPRN),
+};
+
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [L_BASE] = LAYOUT_split_3x6_3(
   //,--------------------------------------------------------------------------.                    ,-----------------------------------------------------.
@@ -44,21 +55,21 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|--------+--------------+-------------+-------------+-------------+--------|                    |--------+--------+--------+--------+--------+--------|
       KC_ESC, LCTL_T(KC_A), LSFT_T(KC_R), LALT_T(KC_S), LGUI_T(KC_T), KC_G,                         KC_M, RGUI_T(KC_N), RALT_T(KC_E), RSFT_T(KC_I), RCTL_T(KC_O),KC_QUOT,
   //|--------+--------------+-------------+-------------+-------------+--------|                    |--------+--------+--------+--------+--------+--------|
-      DF(L_QWERTY),        KC_Z , ALGR_T(KC_X),        KC_C,         KC_D,  KC_V,                         KC_K, KC_H, KC_COMM, ALGR_T(KC_DOT), KC_SLSH, KC_MINUS,
+      TD(TD_PARENTHESES),        KC_Z , ALGR_T(KC_X),        KC_C,         KC_D,  KC_V,                         KC_K, KC_H, KC_COMM, ALGR_T(KC_DOT), KC_SLSH, KC_MINUS,
   //|--------+--------------+-------------+-------------+-------------+--------+-----|  |--------+--------+--------+--------+--------+--------+--------|
                                         LT(L_MOUSE, KC_HOME),     LT(L_LOWER, KC_SPC),  LT(L_SWAYWM, KC_TAB),          LT(L_SYMBOLS, KC_BSPC),   LT(L_LOWER, KC_ENT), LT(L_FUNCTION, KC_DEL)
                                       //`--------------------------------------------'  `--------------------------------------------'
 
   ),
  [L_QWERTY] = LAYOUT_split_3x6_3(
-  //,-----------------------------------------------------.                    ,-----------------------------------------------------.
-       KC_DEL,    KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,                         KC_Y,    KC_U,    KC_I,    KC_O,   KC_P,  KC_BSLASH,
-  //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      KC_ESC,    KC_A,    KC_S,    KC_D,    KC_F,    KC_G,                         KC_H,    KC_J,    KC_K,    KC_L, KC_SCLN, KC_QUOT,
-  //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      DF(L_BASE),    KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,                         KC_N,    KC_M, KC_COMM,  KC_DOT, KC_SLSH,  KC_ESC,
+  //,-----------------------------------------------------.                                        ,-----------------------------------------------------.
+       KC_DEL,    KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,                                             KC_Y,    KC_U,    KC_I,    KC_O,   KC_P,  KC_BSLASH,
+  //|--------+--------+--------+--------+--------+--------|                                        |--------+--------+--------+--------+--------+--------|
+      KC_ESC, LCTL_T(KC_A), LSFT_T(KC_S), LALT_T(KC_D), LGUI_T(KC_F), KC_G,                         KC_H, RGUI_T(KC_J), RALT_T(KC_K), RSFT_T(KC_L), RCTL_T(KC_SCLN), KC_QUOT,
+  //|--------+--------+--------+--------+--------+--------|                                        |--------+--------+--------+--------+--------+--------|
+      DF(L_BASE),    KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,                                       KC_N,    KC_M, KC_COMM,  KC_DOT, KC_SLSH,  KC_ESC,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                                          LT(L_LOWER, KC_HOME),     LT(L_SWAYWM, KC_SPC),  LT(L_MOUSE, KC_TAB),          LT(L_SYMBOLS, KC_BSPC),   LT(L_LOWER, KC_ENT), LT(L_FUNCTION, KC_DEL)
+                                          LT(L_MOUSE, KC_HOME),     LT(L_LOWER, KC_SPC),  LT(L_SWAYWM, KC_TAB),          LT(L_SYMBOLS, KC_BSPC),   LT(L_LOWER, KC_ENT), LT(L_FUNCTION, KC_DEL)
                                       //`--------------------------'  `--------------------------'
 
   ),
@@ -71,7 +82,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_GRAVE,  KC_LCTL, KC_LSFT, KC_LALT, KC_LGUI, _______,                 KC_WWW_BACK, KC_LEFT,   KC_UP,KC_DOWN,KC_RIGHT, KC_WWW_FORWARD,                    
   //|--------+--------+--------+--------+--------+--------|             |--------+--------+--------+--------+--------+--------|  
   //                        long press for {}                  
-      _______, KC_LPRN, KC_LBRC, KC_RBRC, KC_RPRN, _______,                KC_UNDO, KC_HOME, KC_PGUP, KC_PGDN,KC_END, KC_AGAIN,            
+      DF(L_QWERTY), KC_LPRN, KC_LBRC, KC_RBRC, KC_RPRN, _______,                KC_UNDO, KC_HOME, KC_PGUP, KC_PGDN,KC_END, KC_AGAIN,            
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
                                           MO(L_KEYPAD), _______,  _______,     _______,   _______,_______
                                       //`--------------------------'  `--------------------------'
