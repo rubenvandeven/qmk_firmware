@@ -76,13 +76,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
     // numbers and navigation
   [L_LOWER] = LAYOUT_split_3x6_3(
-  //,-----------------------------------------------------.             ,-----------------------------------------------------.                    
-     KC_EQUAL, KC_1, KC_2, KC_3, KC_4, KC_5,                                KC_6, KC_7,    KC_8,    KC_9,  KC_0,  KC_MINUS,                
-  //|--------+--------+--------+--------+--------+--------|             |--------+--------+--------+--------+--------+--------|                    
-    KC_GRAVE,  KC_LCTL, KC_LSFT, KC_LALT, KC_LGUI, _______,                 KC_WWW_BACK, KC_LEFT,   KC_UP,KC_DOWN,KC_RIGHT, KC_WWW_FORWARD,                    
-  //|--------+--------+--------+--------+--------+--------|             |--------+--------+--------+--------+--------+--------|  
-  //                        long press for {}                  
-      DF(L_QWERTY), KC_LPRN, KC_LBRC, KC_RBRC, KC_RPRN, _______,                KC_UNDO, KC_HOME, KC_PGUP, KC_PGDN,KC_END, KC_AGAIN,            
+  //,-----------------------------------------------------.             ,-----------------------------------------------------.
+     KC_EQUAL, KC_1, KC_2, KC_3, KC_4, KC_5,                                KC_6, KC_7,    KC_8,    KC_9,  KC_0,  KC_MINUS,
+  //|--------+--------+--------+--------+--------+--------|             |--------+--------+--------+--------+--------+--------|
+    KC_GRAVE,  KC_LCTL, KC_LSFT, KC_LALT, KC_LGUI, _______,                 KC_WWW_BACK, KC_LEFT,   KC_DOWN, KC_UP,KC_RIGHT, KC_WWW_FORWARD,
+  //|--------+--------+--------+--------+--------+--------|             |--------+--------+--------+--------+--------+--------|
+  //                        long press for {}
+      DF(L_QWERTY), KC_LPRN, KC_LBRC, KC_RBRC, KC_RPRN, _______,                KC_UNDO, KC_HOME, KC_PGDN, KC_PGUP, KC_END, KC_AGAIN,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
                                           MO(L_KEYPAD), _______,  _______,     _______,   _______,_______
                                       //`--------------------------'  `--------------------------'
@@ -92,7 +92,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
        _______, _______, _______, _______, _______, _______,                     _______,  KC_KP_7, KC_KP_8, KC_KP_9, KC_KP_MINUS, _______,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      _______,  KC_LCTL, KC_LSFT, KC_LALT, KC_LGUI, _______,                     KC_KP_SLASH, KC_KP_4, KC_KP_5, KC_KP_6, KC_KP_PLUS,  _______, 
+      _______,  KC_LCTL, KC_LSFT, KC_LALT, KC_LGUI, _______,                     KC_KP_SLASH, KC_KP_4, KC_KP_5, KC_KP_6, KC_KP_PLUS,  _______,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
       _______, _______, _______, _______, _______, _______,                      KC_KP_ASTERISK,  KC_KP_1, KC_KP_2, KC_KP_3, KC_KP_DOT, _______,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
@@ -106,10 +106,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
        SGUI(KC_Q), LGUI(KC_1), LGUI(KC_2), LGUI(KC_3), LGUI(KC_4), LGUI(KC_5),         LGUI(KC_6), LGUI(KC_7), LGUI(KC_8), LGUI(KC_9), LGUI(KC_0), _______,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
   //                                        full screen , key store                              input to left display                           move focus                 input to right display
-      _______, KC_LCTL, KC_LSFT, KC_LALT, LGUI(KC_F), MEH(KC_K),                      LCAG(KC_LEFT), LGUI(KC_LEFT), LGUI(KC_UP),   LGUI(KC_DOWN),LGUI(KC_RIGHT), LCAG(KC_LEFT), 
+      _______, KC_LCTL, KC_LSFT, KC_LALT, LGUI(KC_F), MEH(KC_K),                      LCAG(KC_LEFT), LGUI(KC_LEFT), LGUI(KC_DOWN),   LGUI(KC_UP),LGUI(KC_RIGHT), LCAG(KC_LEFT),
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
   //                    resize       launcher    split h     split v                            nautilus/explorer,  move windows
-      _______, _______, LGUI(KC_R), LGUI(KC_D), LGUI(KC_B), LGUI(KC_V),                      LGUI(KC_N),SGUI(KC_LEFT), SGUI(KC_UP),   SGUI(KC_DOWN),SGUI(KC_RIGHT), _______,
+      _______, _______, LGUI(KC_R), LGUI(KC_D), LGUI(KC_B), LGUI(KC_V),                      LGUI(KC_N),SGUI(KC_LEFT), SGUI(KC_DOWN), SGUI(KC_UP),  SGUI(KC_RIGHT), _______,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
   //                                                float toggle
                                           _______, SGUI(KC_SPC),  _______,     _______, LGUI(KC_ENT), _______
@@ -117,12 +117,12 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ),
 
   [L_SYMBOLS] = LAYOUT_split_3x6_3(
-  //,-----------------------------------------------------.                 ,-----------------------------------------------------.                    
-      _______, _______, KC_LPRN, KC_RPRN, _______, _______,                  _______, _______,   _______, _______,  _______, _______,                    
-  // |--------+--------+--------+--------+--------+--------|                |--------+--------+--------+--------+--------+--------|                   
-      _______,  _______, KC_LBRC, KC_RBRC, _______,  KC_GRV,                   _______, _______, _______, _______, _______, _______,                    
-  //|--------+--------+--------+--------+--------+--------|                 |--------+--------+--------+--------+--------+--------|                    
-      _______, _______, KC_LCBR, KC_RCBR, _______, _______,                  _______, _______, KC_LEFT_ANGLE_BRACKET, KC_RIGHT_ANGLE_BRACKET, _______, _______,                    
+  //,-----------------------------------------------------.                 ,-----------------------------------------------------.
+      _______, _______, KC_LPRN, KC_RPRN, _______, _______,                  _______, _______,   _______, _______,  _______, _______,
+  // |--------+--------+--------+--------+--------+--------|                |--------+--------+--------+--------+--------+--------|
+      _______,  _______, KC_LBRC, KC_RBRC, _______,  KC_GRV,                   _______, _______, _______, _______, _______, _______,
+  //|--------+--------+--------+--------+--------+--------|                 |--------+--------+--------+--------+--------+--------|
+      _______, _______, KC_LCBR, KC_RCBR, _______, _______,                  _______, _______, KC_LEFT_ANGLE_BRACKET, KC_RIGHT_ANGLE_BRACKET, _______, _______,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
                                           _______,   _______,  _______, _______, _______, _______
                                       //`--------------------------'  `--------------------------'
@@ -132,9 +132,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
         RESET, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      RGB_TOG, RGB_HUI, RGB_SAI, RGB_VAI, XXXXXXX, XXXXXXX,                      XXXXXXX, KC_MS_L, KC_MS_U, KC_MS_D, KC_MS_R, XXXXXXX,
+      RGB_TOG, RGB_HUI, RGB_SAI, RGB_VAI, XXXXXXX, XXXXXXX,                      XXXXXXX, KC_MS_L, KC_MS_D, KC_MS_U, KC_MS_R, XXXXXXX,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      RGB_MOD, RGB_HUD, RGB_SAD, RGB_VAD, XXXXXXX, XXXXXXX,                      XXXXXXX, KC_WH_L, KC_WH_U, KC_WH_D, KC_WH_R, XXXXXXX,
+      RGB_MOD, RGB_HUD, RGB_SAD, RGB_VAD, XXXXXXX, XXXXXXX,                      XXXXXXX, KC_WH_L, KC_WH_D, KC_WH_U, KC_WH_R, XXXXXXX,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
                                           _______, MO(L_KEYPAD),  _______,     KC_BTN3, KC_BTN1, KC_BTN2
                                       //`--------------------------'  `--------------------------'
@@ -144,7 +144,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
         RESET, XXXXXXX, KC_F7,    KC_F8,    KC_F9, KC_F10,                      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      _______, KC_EXECUTE, KC_F4,   KC_F5,   KC_F6, KC_F11,                      KC_MEDIA_PREV_TRACK, KC_MPLY, KC__VOLUP, KC__VOLDOWN, KC__MUTE, KC_MEDIA_NEXT_TRACK,
+      _______, KC_EXECUTE, KC_F4,   KC_F5,   KC_F6, KC_F11,                      KC_MEDIA_PREV_TRACK, KC_MPLY, KC__VOLDOWN, KC__VOLUP, KC__MUTE, KC_MEDIA_NEXT_TRACK,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
       LSFT(KC_PSCR), KC_PSCR, KC_F1, KC_F2,   KC_F3, KC_F12,                      XXXXXXX, _______, _______, _______, _______, XXXXXXX,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
@@ -155,15 +155,15 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 #ifdef OLED_DRIVER_ENABLE
 oled_rotation_t oled_init_user(oled_rotation_t rotation) {
-    if(is_master) {
+    // if(is_master) {
         // On corne we want to actually be able to read what we write
         return OLED_ROTATION_270;
-    }
+    // }
 
-    if(is_keyboard_left()){
-        return rotation;
-    }
-    return OLED_ROTATION_180;
+    // if(is_keyboard_left()){
+    //     return rotation;
+    // }
+    // return OLED_ROTATION_180;
 }
 
 
@@ -263,14 +263,15 @@ void oled_task_user(void) {
         oled_render_layer_state();
         oled_render_keylog();
     } else {
-        if(layer_state_cmp(layer_state, L_KEYPAD)){
-            oled_write_P(PSTR(" 789-"), false);
-            oled_write_P(PSTR("/456+"), false);
-            oled_write_P(PSTR("0123*"), false);
-            oled_write_P(PSTR("<=."), false);
-        } else {
-            oled_render_logo();
-        }
+        oled_render_layer_state();
+        // if(layer_state_cmp(layer_state, L_KEYPAD)){
+        //     oled_write_P(PSTR(" 789-"), false);
+        //     oled_write_P(PSTR("/456+"), false);
+        //     oled_write_P(PSTR("0123*"), false);
+        //     oled_write_P(PSTR("<=."), false);
+        // } else {
+        //     oled_render_logo();
+        // }
     }
 }
 
@@ -287,7 +288,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 #ifdef RGBLIGHT_ENABLE
 // Light LEDs 6 to 9 and 12 to 15 red when caps lock is active. Hard to ignore!
 const rgblight_segment_t PROGMEM led_base[] = RGBLIGHT_LAYER_SEGMENTS(
-    {0, 6, HSV_CYAN}//, 
+    {0, 6, HSV_CYAN}//,
     // {12, 4, HSV_RED}       // Light 4 LEDs, starting with LED 12
 );
 // Light LEDs 9 & 10 in cyan when keyboard layer 1 is active
