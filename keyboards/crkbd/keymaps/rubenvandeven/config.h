@@ -32,11 +32,16 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 // #define TAPPING_FORCE_HOLD
 // Because we enable permissive hold we can increase the tapping term a bit
-#define TAPPING_TERM 300
-// shift(kc_x)+a becomes A even within tapping term, 
-#define PERMISSIVE_HOLD
+#define TAPPING_TERM 220
+// shift(kc_x)+a becomes A even within tapping term, (with a shorter tapping term, it might be better to disable this)
+// #define PERMISSIVE_HOLD
 
-#define AUTO_SHIFT_TIMEOUT 200
+// Prevent normal rollover on alphas from accidentally triggering mods.
+// it's probably better to disable when PERMISSIVE HOLD is enbled:
+//  If you have Permissive Hold enabled, as well, this will modify how both work. The regular key has the modifier added if the first key is released first or if both keys are held longer than the TAPPING_TERM.
+#define IGNORE_MOD_TAP_INTERRUPT
+
+#define AUTO_SHIFT_TIMEOUT 150
 //Do not Auto Shift alpha characters, which include A through Z.
 #define NO_AUTO_SHIFT_ALPHA
 
@@ -60,8 +65,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 
 /* From users/manna-harbour_miryoku */
-// Prevent normal rollover on alphas from accidentally triggering mods.
-#define IGNORE_MOD_TAP_INTERRUPT
 
 // Enable rapid switch from tap to hold, disables double tap hold auto-repeat.
 // #define TAPPING_FORCE_HOLD
